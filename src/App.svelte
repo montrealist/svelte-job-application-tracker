@@ -1,5 +1,6 @@
 <script>
 	export let name;
+	import './tachyons.css';
 </script>
 
 <main>
