@@ -1,13 +1,12 @@
 <script>
 	import { onMount } from 'svelte';
-
+	export let table;
 	import '../tachyons.css';
 	import ItemList from './ItemList.svelte';
 
 	import dbInit from '../db';
 
-	let applications = [];
-	const tableName = 'applications';
+	let items = [];
 
 	onMount(async () => {
         let db;
@@ -16,7 +15,7 @@
                 console.error(e);
             });
             // TODO: dexie insists to use the yield keyword instead of await but Svelte is throwing an error
-		    applications = await db.table(tableName).toArray();
+		    items = await db.table(table).toArray();
 		} finally {
             // TODO: do we need to close every time?
 		    db.close();
@@ -25,7 +24,7 @@
 </script>
 
 <div class="f3 list pl0 mt0 measure-wide-ns center">
-    <ItemList items={applications} />
+    <ItemList {items} />
 </div>
 
 
