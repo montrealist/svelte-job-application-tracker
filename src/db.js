@@ -1,11 +1,7 @@
 import Dexie from 'dexie';
-let db;
 
-const asyncWrapper = Dexie.async(function* () {
-    db = new Dexie('ApplicationsDB');
+export default Dexie.async(function* () {
+    let db = new Dexie('ApplicationsDB');
     db.version(1).stores({ applications: '++id' });
+    return db;
 });
-
-asyncWrapper().catch(e => console.error(e));
-
-export default db;

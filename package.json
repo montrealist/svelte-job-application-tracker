@@ -21,6 +21,7 @@
   "dependencies": {
     "dexie": "^3.0.1",
     "sirv-cli": "^0.4.4",
+    "svelte-routing": "^1.4.2",
     "tachyons": "latest",
     "tachyons-cli": "latest"
   }
