@@ -2,7 +2,6 @@
 /public/build/
 
 .DS_Store
-
 # generated .css files:
-src/tachyons.css
+# src/tachyons.css
 public/extra.css
