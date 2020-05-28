@@ -9,8 +9,13 @@
 
 <Router>
 	<Navbar />
-	<Route path="/edit" component={AddEditForm} />
-	<Route path="/"><Home /></Route>
+	<main>
+		<section class="pv6-ns">
+			<Route path="/add" component={AddEditForm} />
+			<Route path="/edit/:id" let:params><AddEditForm id="{params.id}" /></Route>
+			<Route path="/"><Home /></Route>
+		</section>
+	</main>
 </Router>
 
 <style>
