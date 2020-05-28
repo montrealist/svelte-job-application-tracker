@@ -9,7 +9,8 @@
         <NavLink classes="link dim white dib mr3" to="/">List</NavLink>
         <NavLink classes="link dim white dib mr3" to="/add">Add Item</NavLink>
         <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
-            <!-- <Link class={"link tr-l dim dib mr3 " + (entries && entries.length ? 'mid-gray' : 'white')} to="/seed">Seed some list entries</Link> -->
+            <!--TODO: maybe make link mid-gray instead of white if there are entries -->
+            <NavLink classes="link tr-l dim dib mr3 white" to="/seed.html">Seed some list entries</NavLink>
         </div>
     </nav>
 </header>
