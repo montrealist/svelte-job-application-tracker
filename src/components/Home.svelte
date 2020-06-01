@@ -21,10 +21,15 @@
 		    db.close();
 		}
 	});
+
+	const onDelete = (id) => {
+		console.log('onDelete: ', id);
+	};
+
 </script>
 
 <div class="f3 list pl0 mt0 measure-wide-ns center">
-    <ItemList {items} />
+    <ItemList items={items} onDelete={onDelete} />
 </div>
 
 
