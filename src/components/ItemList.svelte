@@ -1,15 +1,18 @@
 <script>
     export let items;
+    export let onDelete;
+
     import {Link} from 'svelte-routing';
     import NavLink from "./NavLink.svelte";
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+        onDelete(e.target.dataset.id);
+    };
 </script>
 
-<style>
-
-</style>
-
 {#if items && items.length === 0}
-Loading...
+Loading...<!-- TODO: align this messaging the react app  -->
 {:else if items}
     {#each items as item}
         <li class="flex items-center lh-title pa3 ph0-l bb b--black-10">
@@ -20,7 +23,7 @@ Loading...
             </div>
             <div class="flex flex-column">
                 <NavLink to={"/edit/" + item.id} classes="w4 f5 tc link dim br3 ba bw1 ph3 pv2 ml2 mb2 dib navy">edit</NavLink>
-                <button class="w4 f5 link dim br3 ba bw1 ph3 pv2 ml2 mb2 dib dark-pink">delete</button>
+                <button class="w4 f5 link dim br3 ba bw1 ph3 pv2 ml2 mb2 dib dark-pink" data-id={item.id} on:click={handleDelete}>delete</button>
             </div>
         </li>
     {/each}

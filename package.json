@@ -4,7 +4,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public",
+    "start": "sirv public --single",
+    "start:dev": "sirv public --single --dev",
     "css": "tachyons src/css/app.css > src/tachyons.css",
     "css-prod": "tachyons src/css/app.css > src/tachyons.css --minify"
   },
