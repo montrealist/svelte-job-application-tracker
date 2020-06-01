@@ -1,5 +1,7 @@
 <script>
     export let items;
+    import {Link} from 'svelte-routing';
+    import NavLink from "./NavLink.svelte";
 </script>
 
 <style>
@@ -17,7 +19,7 @@ Loading...
                 <span class="f5 db black-70">{item.notes}</span>
             </div>
             <div class="flex flex-column">
-                <a class="w4 f5 tc link dim br3 ba bw1 ph3 pv2 ml2 mb2 dib navy" href="!#">edit</a>
+                <NavLink to={"/edit/" + item.id} classes="w4 f5 tc link dim br3 ba bw1 ph3 pv2 ml2 mb2 dib navy">edit</NavLink>
                 <button class="w4 f5 link dim br3 ba bw1 ph3 pv2 ml2 mb2 dib dark-pink">delete</button>
             </div>
         </li>
