@@ -1,6 +1,11 @@
 <script>
-    import {Link} from 'svelte-routing';
+    import { Link, navigate } from 'svelte-routing';
     import NavLink from "./NavLink.svelte";
+
+    const handleNavigate = () => {
+        navigate('/seed.html');
+    };
+
 </script>
 
 
@@ -10,7 +15,7 @@
         <NavLink classes="link dim white dib mr3" to="/add">Add Item</NavLink>
         <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
             <!--TODO: maybe make link mid-gray instead of white if there are entries -->
-            <NavLink classes="link tr-l dim dib mr3 white" to="/seed.html">Seed some list entries</NavLink>
+            <a href="/seed.html" class="link tr-l dim dib mr3 white" onClick={handleNavigate}>Seed some list entries</a>
         </div>
     </nav>
 </header>
