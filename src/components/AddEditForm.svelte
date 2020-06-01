@@ -32,6 +32,11 @@
 		message.error = msg || false;
 	};
 
+	const setMessage = (msg) => {
+		message.text = msg || '';
+		message.error = false;
+	};
+
 	const updateItemRef = (newItem) => itemRef = Object.assign({}, newItem);
 	const resetItem = () => item = Object.assign({}, originalItem);
 
@@ -73,17 +78,19 @@
 				const res = await db[table].update(idToUpdate, item);
 				if (res === 1) {
 					updateItemRef(item);
+					setMessage('Item updated.');
 				} else {
-					// TODO: if res === 0 - show error in UI
+					setError('Updating item failed! 😖', true);
 				}
 			} else {
 				delete item.id;
 				const insertedId = await db[table].add(item);
 				resetItem();
 				updateItemRef(originalItem);
+				setMessage('Item added.');
 			}
 		} catch (e) {
-			// TODO: show error in UI
+			setError(`Something did not work! (${e.message})`);
 			console.warn(e);
 		}
 	};
