@@ -5,7 +5,7 @@
 
 	import dbInit from '../db';
 	import StatusMessage from './StatusMessage.svelte';
-	
+
 	const originalItem = {
 		id: null,
 		company: '',
@@ -18,18 +18,18 @@
 
 	let db;
 
-	let message = {
+	const message = {
 		text: '',
 		error: false
 	};
 
-	// $: console.log(`the message is ${message.text}`);
+	$: if (item.company && item.position) {
+		setError();
+	}
 
 	const setError = (msg) => {
-		message = {
-			text: msg,
-			error: true
-		}
+		message.text = msg || '';
+		message.error = msg || false;
 	};
 
 	const updateItemRef = (newItem) => itemRef = Object.assign({}, newItem);
@@ -59,7 +59,7 @@
 		e.preventDefault();
 
 		if (item.company.trim() === '' || item.position.trim() === '') {
-			setError('Company and position are mandatory fields');
+			setError('Company and position are mandatory fields', true);
 			return;
 		}
 
@@ -122,7 +122,7 @@
 				process.</small>
 		</div>
 		<div class="measure">
-			<StatusMessage {...message} />
+			<StatusMessage {message} />
 		</div>
 		<div class="measure tr">
 			<button class="f4 link dim br3 ba bw1 ph3 pv2 ml2 mb2 dib dark-green" type="submit">Submit</button>
