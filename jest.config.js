@@ -10,4 +10,5 @@ module.exports = {
     transformIgnorePatterns: [
         "node_modules/?!(svelte-routing|svelte)"
     ],
+    setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"]
 }
