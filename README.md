@@ -1,24 +1,24 @@
-# simple job application tracker
+# Simple job application tracker (Svelte)
 
-Deployed here: https://simple-job-applications-tracker.now.sh/
+Deployed here: https://svelte-job-application-tracker.now.sh/
 
-## features
+## Features
 
 - add/edit/delete items
 - seed page with some dummy items
-- routing using React
+- routing using `svelte-routing`
 - stores entries in the browser using IndexedDB
 - 100% responsive layout using Tachyons CSS framework
 
-## libraries/frameworks used
+## Libraries/frameworks used
 
-- React
-- [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start)
+- Svelte
+- [svelte-routing](https://github.com/EmilTholin/svelte-routing)
 - [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) for storage
 - [Dexie.js](https://dexie.org/) wrapper for IndexedDB
 - [Tachyons](https://tachyons.io/) for CSS
 
-## svelte app
+## Svelte app
 
 Project was bootstrapped with [Svelte](https://github.com/sveltejs/template).
 
