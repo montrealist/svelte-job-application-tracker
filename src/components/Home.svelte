@@ -1,7 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
-	export let table;
+    import { Link, navigate } from 'svelte-routing';
 	import '../tachyons.css';
+
+	export let table;
 
 	import ItemList from './ItemList.svelte';
 	import StatusMessage from './StatusMessage.svelte';
@@ -64,7 +66,12 @@
 	<div>
 		<StatusMessage {message} />
 	</div>
-	<ItemList items={items} onDelete={onDelete} />
+	{#if items.length}
+		<ItemList items={items} onDelete={onDelete} />
+	{:else}
+		<p className="f4 list pl0 mt0 measure-wide-ns center">No items. <a href="/seed.html" on:click={e => navigate('/seed.html')}>Seed some list entries</a> or <Link to="/add">add an item</Link> manually.</p>
+	{/if}
+
 </div>
 
 
