@@ -1,10 +1,13 @@
 module.exports = {
     transform: {
-        '^.+\\.svelte$': 'svelte-jester',
+        '^.+\\.svelte$': 'jest-transform-svelte',
         '^.+\\.js$': 'babel-jest',
     },
-    transformIgnorePatterns: [
-        "node_modules/?!(svelte-routing)"
-    ],
     moduleFileExtensions: ['js', 'svelte'],
+    testPathIgnorePatterns: ["node_modules"],
+    bail: false,
+    verbose: true,
+    transformIgnorePatterns: [
+        "node_modules/?!(svelte-routing|svelte)"
+    ],
 }

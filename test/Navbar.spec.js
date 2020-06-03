@@ -1,9 +1,16 @@
 import Navbar from '../src/components/Navbar.svelte';
-import { render, fireEvent } from '@testing-library/svelte';
+import { render } from '@testing-library/svelte';
 
-// https://timdeschryver.dev/blog/how-to-test-svelte-components
+/* 
+
+Tutorials:
+
+https://timdeschryver.dev/blog/how-to-test-svelte-components
+https://dev.to/jpblancodb/testing-svelte-components-with-jest-53h3
+
+*/
 
 it('Navbar renders', async () => {
     const { getByText } = render(Navbar);
-    expect(getByText('Hello World!')).toBeInTheDocument();
+    expect(getByText('Add Item'));
 })
